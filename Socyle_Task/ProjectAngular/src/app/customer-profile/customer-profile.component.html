@@ -1,0 +1,28 @@
+<div class="container">
+    <h3 class="text-center">Shops Data to Subscribe</h3>
+    <table class="table">
+        <thead>           
+            <tr>
+              <th> Shop Name </th>
+              <th> Subscribes </th>
+            </tr>
+          </thead>
+      <tbody>
+        <tr *ngFor="let shop of shops">
+            <td> <input type="text" name="shop.shopname" disabled></td>
+            <td>
+              <a class="btn btn-info" (click)="addtoFavoraite(shop.shopname)" role="button">Add to Favoraite</a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr><hr>
+  <div>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item list-group-item-info">My Favoraite List</li>
+      </ul>
+      <ul *ngFor="let item of customerData.favoraitelist" class="list-group list-group-flush">
+          <li class="list-group-item">{{item}}</li>
+      </ul>
+  </div>

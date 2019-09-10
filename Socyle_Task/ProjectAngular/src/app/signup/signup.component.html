@@ -1,0 +1,71 @@
+<div class="row mt-5 pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">
+            SignUp
+          </h3>
+        </div>
+        <div class="card-body">
+          <form class="col-sm-6 text-center ">
+              <pre>
+              </pre>
+               <div class="form-group row">
+                <label for="Email" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                  <input [(ngModel)]="signupUserData.email" name="email" type="email" class="form-control" id="Email" placeholder="Email" required>
+                </div>
+              </div>
+          
+              <div class="form-group row">
+                <label for="Password" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-8">
+                  <input [(ngModel)]="signupUserData.password" name="password" type="password" class="form-control" id="Password" placeholder="Password" required>
+                </div>
+              </div>
+              
+              <div class="form-group row">
+                  <label for="UserName" class="col-sm-4 col-form-label">UserName</label>
+                  <div class="col-sm-8">
+                    <input [(ngModel)]="signupUserData.username" name="username" type="text" class="form-control" id="UserName" placeholder="UserName" required>
+                  </div>
+               </div>
+      
+              <div class="form-group row">
+                  <label for="Telephone" class="col-sm-4 col-form-label">Telephone</label>
+                  <div class="col-sm-8">
+                    <input [(ngModel)]="signupUserData.telephone" name="telephone" type="tel" class="form-control" id="Telephone" placeholder="Telephone" pattern="01?[0-9]{1}[0-9]{8}" required>
+                  </div>
+              </div>
+
+              <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-4 pt-0">User Type</legend>
+                  <div class="col-sm-8 text-left">
+                    <div class="form-check">
+                      <input [(ngModel)]="signupUserData.usertype" class="form-check-input" type="radio" name="usertype" id="customerRadio" value="customer">
+                      <label class="form-check-label" for="customerRadio">
+                        Customer
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input [(ngModel)]="signupUserData.usertype" class="form-check-input" type="radio" name="usertype" id="shopadminRadio" value="shopadmin" required>
+                      <label class="form-check-label" for="shopadminRadio">
+                        Shop Admin
+                      </label>
+                    </div>
+                  </div>
+                </div>
+               </fieldset>
+                <pre>
+                  </pre>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                    <button (click)="signupUser(signupUserData.usertype,signupUserData.username)" type="submit" class="btn btn-info">Sign in</button>
+                  </div>
+                </div>
+           </form>
+         </div>
+         </div>
+       </div>
+    </div>

@@ -1,0 +1,140 @@
+<div class="container">
+    <h3 class="text-center">Shops Data</h3>
+    <table class="table">
+        <thead>           
+            <tr>
+              <th> Id </th>
+              <th> Shop Name </th>
+              <th> ShopType </th>
+              <th> Shop Descripsion </th>
+              <th> Shop Admin </th>
+            </tr>
+          </thead>
+      <tbody>
+        <tr *ngFor="let shop of shops">
+            <td> <input type="text" name="shop.shop_ID" [(ngModel)]="shop.shop_ID" disabled></td>
+            <td> <input type="text" name="shop.shopname" [(ngModel)]="shop.shopname"></td>
+            <td> <input type="file" name="shop.shoptype" [(ngModel)]="shop.shoptype"></td>
+            <td> <input type="text" name="shop.shopdescripsion" [(ngModel)]="shop.shopdescripsion"></td>
+            <td> <input type="text" name="shop.shopadmin" [(ngModel)]="shop.shopadmin"></td>
+            <td>
+              <a class="btn btn-info" (click)="updateShop(shop)" role="button">Edit</a> 
+              <a class="btn btn-danger" (click)="deleteShop(shop)" role="button">Delete</a>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-center">
+        <button type="submit" data-toggle="modal" data-target="#AddShop" class="btn btn-info">Add Shop</button>
+    </div>
+  </div>
+  <hr><hr>
+
+  <div class="container">
+      <h3 class="text-center">Shop Admins Data</h3>
+      <table class="table">
+          <thead>           
+              <tr>
+                <th> Id </th>
+                <th> Name </th>
+                <th> Email </th>
+                <th> Telephone </th>
+                <th> Password </th>
+                <th> User Type </th>
+                <th> Approval </th>
+              </tr>
+            </thead>
+        <tbody>
+          <tr *ngFor="let shopadmin of shopadmins">
+              <td> <input type="text" name="shopadmin.user_ID" [(ngModel)]="shopadmin.user_ID" disabled></td>
+              <td> <input type="text" name="shopadmin.username" [(ngModel)]="shopadmin.username"></td>
+              <td> <input type="email" name="shopadmin.email" [(ngModel)]="shopadmin.email"></td>
+              <td> <input type="tel" name="shopadmin.telephone" [(ngModel)]="shopadmin.telephone"></td>
+              <td> <input type="password" name="shopadmin.password" [(ngModel)]="shopadmin.password"></td>
+              <td> <input type="text" name="shopadmin.usertype" [(ngModel)]="shopadmin.usertype"></td>
+              <td> <input type="text" name="shopadmin.approval" [(ngModel)]="shopadmin.approval"></td>
+              <td>
+                <a class="btn btn-info" (click)="updateShopAdmin(shopadmin)" role="button">Edit</a> 
+                <a class="btn btn-danger" (click)="deleteShopAdmin(shopadmin)" role="button">Delete</a>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-center">
+          <button type="submit" data-toggle="modal" data-target="#AddAdminShop" class="btn btn-info">Add Admin Shop</button>
+      </div>
+    </div>
+
+  
+  
+  <div class="modal fade" id="AddShop" tabindex="-1" role="dialog" aria-labelledby="Add" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="Add">Add Shop</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #addForm action="index.html" method="POST" role="form">
+            
+              <div class="form-group">
+                <label for="shopid">Shop ID</label>
+                <input type="text" class="form-control" id="shopid" [(ngModel)]="shopadmin.shop_ID" placeholder="Shop ID" disabled>
+                <label for="shopname">Shop Name</label>
+                <input type="text" class="form-control" id="shopname" placeholder="Shop Name">
+                <label for="shoptype">Shop Type</label>
+                <input type="text" class="form-control" id="shoptype" placeholder="Shop Type">
+                <label for="shopdescription">Shop Description</label>
+                <input type="text" class="form-control" id="shopdescription" placeholder="Shop Description">
+                <label for="shopadmin">Shop Admin</label>
+                <input type="text" class="form-control" id="shopadmin" placeholder="Shop Admin">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" (click)="addShop(addForm)" class="btn btn-info" routerLink="/superadmin">Add Shop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal fade" id="AddAdminShop" tabindex="-1" role="dialog" aria-labelledby="AddAdmin" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="AddAdmin">Add Shop Admin</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form #addForm action="index.html" method="POST" role="form">
+              
+                <div class="form-group">
+                  <label for="shopadminid">Shop Admin ID</label>
+                  <input type="text" class="form-control" id="shopadminid" [(ngModel)]="shopadmin.user_ID" placeholder="Shop Admin ID" disabled>
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Email">
+                  <label for="telephone">Telephone</label>
+                  <input type="tel" class="form-control" id="telephone" placeholder="Telephone">
+                  <label for="shopadmin">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="Password">
+                  <label for="shopdescription">User Type</label>
+                  <input type="text" class="form-control" id="usertypr" placeholder="User Type">
+                  <label for="shopadmin">Approval</label>
+                  <input type="text" class="form-control" id="approval" placeholder="Approval">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" (click)="addShopAdmin(addForm)" class="btn btn-info" routerLink="/superadmin">Add Shop Admin</button>
+            </div>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <a class="navbar-brand" routerLink="/home">Shop Store</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/{{usertype}}" routerLinkActive="active">Profile</a>
+      </li> -->
+    </ul>
+    <ul class="navbar-nav">
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLink="/login" routerLinkActive="active">Log in</a>
+        <a class="nav-link" *ngIf="!_authService.loggedIn()"  routerLink="/signup" routerLinkActive="active">Sign up</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>      
+        </ul>
+  </div>
+</nav>
+
+<div class="container">
+<router-outlet></router-outlet>
+</div>
+
+<div class="container-fluid">
+  <footer class="row text-center fixed-bottom bg-info">
+      <div class="col-sm-12">
+          <div class="text-light lead">
+              &copy; Shop Store 2019  |  All Rights Reserved | site by <a class="text-dark" href="mailto:rahmaroma158@email.com">Rahma Atef</a>
+          </div>
+      </div>
+  </footer>
+</div>

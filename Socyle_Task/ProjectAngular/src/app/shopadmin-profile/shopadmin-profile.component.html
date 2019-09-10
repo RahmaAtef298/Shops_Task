@@ -1,0 +1,52 @@
+<div class="container">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Shop Name</th>
+        <td>{{shopData.shopnamr}}</td>
+      </tr>
+      <tr>
+        <th scope="row">ShopType</th>
+        <td>{{shopData.shoptype}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Shop Descripsion</th>
+        <td>{{shopData.shopdescripsion}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div  *ngIf="shopAdminData.approval==true" class="text-center">
+    <button type="submit" data-toggle="modal" data-target="#UpdateShop" class="btn btn-info">Update Shop</button>
+    <button (click)="deleteShop(shopData)" type="submit" class="btn btn-info">Delete Shop</button>  
+</div>
+
+<div class="modal fade" id="UpdateShop" tabindex="-1" role="dialog" aria-labelledby="Update" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Update">Update Shop </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #updateForm action="index.html" method="POST" role="form">
+          
+            <div class="form-group">
+              <label for="shopname">Shop Name</label>
+              <input type="text" class="form-control" id="shopname" placeholder="Shop Name">
+              <label for="shoptype">Shop Type</label>
+              <input type="text" class="form-control" id="shoptype" placeholder="Shop Type">
+              <label for="shopdescription">Shop Description</label>
+              <input type="text" class="form-control" id="shopdescription" placeholder="Shop Description">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" (click)="updateShop(updateForm)" class="btn btn-info" routerLink="/shopadmin">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

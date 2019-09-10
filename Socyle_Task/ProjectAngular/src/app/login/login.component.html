@@ -1,0 +1,43 @@
+<div class="row mt-5 pt-5">
+    <div class="col-md-6 mx-auto">
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h3 class="mb-0">
+            Login
+          </h3>
+        </div>
+        <form class="col-sm-6 text-center ">
+           <pre>
+           </pre>
+           <div class="form-group row">
+            <label for="Email" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="loginUserData.email" name="email" type="email" class="form-control" id="Email" placeholder="Email" required>
+            </div>
+           </div>
+
+           <div class="form-group row">
+            <label for="Password" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
+              <input [(ngModel)]="loginUserData.password" name="password" type="password" class="form-control" id="Password" placeholder="Password" required>
+            </div>
+           </div>
+    
+           <div class="form-group row">
+             <label for="UserName" class="col-sm-4 col-form-label">UserName</label>
+             <div class="col-sm-8">
+               <input [(ngModel)]="loginUserData.username" name="username" type="text" class="form-control" id="UserName" placeholder="UserName" required>
+             </div>
+            </div>
+            <pre>
+            </pre>
+           <div class="form-group row">
+            <div class="col-sm-12">
+              <button (click)="loginUser(loginUserData.username)" type="submit" class="btn btn-info">Log in</button>
+            </div>
+           </div>
+          </form>
+        </div>
+      </div>
+    </div>
+   </div>
